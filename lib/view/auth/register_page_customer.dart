@@ -1,4 +1,4 @@
-import 'package:car_wash_app/view/auth/login_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,6 +43,7 @@ class RegisterPageCustomer extends StatelessWidget {
             
             SizedBox(height: screenHeight * .02),
             GetBuilder<RegisterViewModel>(
+              init: RegisterViewModel(),
               builder: (controller) => InputField(
                 onChanged: (value) {
                   controller.password = value;
@@ -56,7 +57,7 @@ class RegisterPageCustomer extends StatelessWidget {
             ),
             SizedBox(height: screenHeight * .025),
             GetBuilder<RegisterViewModel>(
-              init: RegisterViewModel(),
+              
               builder: (controller) => InputField(
                 onChanged: (value) {
                   controller.email = value;
