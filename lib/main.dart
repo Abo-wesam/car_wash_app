@@ -1,4 +1,6 @@
+import 'package:car_wash_app/model/Binding/Binding.dart';
 import 'package:car_wash_app/view/auth/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -7,9 +9,9 @@ import 'package:device_preview/device_preview.dart';
 
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),

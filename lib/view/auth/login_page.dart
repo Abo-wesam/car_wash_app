@@ -16,7 +16,7 @@ import '../../view_model/login_view_model.dart';
 import '../widget/form_button.dart';
 import '../widget/input_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends GetWidget<LoginViewModel> {
   const LoginPage({super.key});
 
   
@@ -55,11 +55,7 @@ class LoginPage extends StatelessWidget {
             
             SizedBox(
               height: screenHeight * .1),
-              GetBuilder<LoginViewModel>(
-                init: LoginViewModel(),
 
-                builder:(controller) =>  
-                
                 InputField(
                 onChanged: (value) {
                   
@@ -72,14 +68,10 @@ class LoginPage extends StatelessWidget {
                 textInputAction: TextInputAction.next,
                 autoFocus: true,
               ),
-              
-                
-              
-              
-            ),
+
             SizedBox(
               height: screenHeight * .025),
-              GetBuilder<LoginViewModel>(builder:(controller) => 
+
               InputField(
                 onChanged: (value) {
                   
@@ -93,12 +85,7 @@ class LoginPage extends StatelessWidget {
                 textInputAction: TextInputAction.next,
               ),
               
-              
-              
-              
-            ),
-            
-            
+
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
@@ -114,17 +101,15 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: screenHeight * .075,
             ),
-            GetBuilder<LoginViewModel>(
-              builder:(controller) =>  FormButton(
+         FormButton(
                 text: "Log In",
                 onPressed: controller.submitLogin,
               ),
-            ),
+
             SizedBox(
               height: screenHeight * .015,
             ),
-            GetBuilder<LoginViewModel>(
-              builder:(controller) =>  TextButton(
+            TextButton(
                  onPressed: () {
                   Get.to(const RegisterPage());
                  },
@@ -145,7 +130,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+
           ],
         ),
       ),
