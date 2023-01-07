@@ -1,9 +1,8 @@
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class LoginViewModel extends GetxController {
-FirebaseAuth Auth=FirebaseAuth.instance;
+//final  FirebaseAuth _auth=FirebaseAuth.instance;
   late String email, password;
   String? emailError, passwordError;
   // late final Function(String? email, String? password)? onSubmitted;
@@ -51,8 +50,7 @@ FirebaseAuth Auth=FirebaseAuth.instance;
   
   void submitLogin() {
     if (validateLogin()) {
-
-      Get.snackbar('Login', 'Login successfully');
+  Get.snackbar('Login', 'Login successfully');
     } else {
       Get.snackbar('Login', 'Invalid email or password');
     }
