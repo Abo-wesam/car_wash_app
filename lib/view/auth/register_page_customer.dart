@@ -7,7 +7,7 @@ import '../../view_model/register_view_model.dart';
 import '../widget/form_button.dart';
 import '../widget/input_field.dart';
 
-class RegisterPageCustomer extends StatelessWidget {
+class RegisterPageCustomer extends GetWidget<RegisterViewModel> {
   const RegisterPageCustomer({super.key});
 
   @override
@@ -42,23 +42,19 @@ class RegisterPageCustomer extends StatelessWidget {
               ),
             
             SizedBox(height: screenHeight * .02),
-            GetBuilder<RegisterViewModel>(
-              init: RegisterViewModel(),
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
-                  controller.password = value;
+                  controller.FullName = value;
                 },
                 
                 labelText: "Full Name",
-                errorText: controller.passwordError,
+               errorText: controller.name,
                 obscureText: true,
                 textInputAction: TextInputAction.next,
               ),
-            ),
+
             SizedBox(height: screenHeight * .025),
-            GetBuilder<RegisterViewModel>(
-              
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
                   controller.email = value;
                 },
@@ -68,10 +64,9 @@ class RegisterPageCustomer extends StatelessWidget {
                 textInputAction: TextInputAction.next,
                 autoFocus: true,
               ),
-            ),
+
             SizedBox(height: screenHeight * .025),
-            GetBuilder<RegisterViewModel>(
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
                   controller.password = value;
                 },
@@ -81,10 +76,9 @@ class RegisterPageCustomer extends StatelessWidget {
                 obscureText: true,
                 textInputAction: TextInputAction.next,
               ),
-            ),
+
             SizedBox(height: screenHeight * .025),
-            GetBuilder<RegisterViewModel>(
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
                   controller.confirmPassword = value;
                 },
@@ -93,16 +87,15 @@ class RegisterPageCustomer extends StatelessWidget {
                 obscureText: true,
                 textInputAction: TextInputAction.done,
               ),
-            ),
+
             SizedBox(
               height: screenHeight * .050,
             ),
-            GetBuilder<RegisterViewModel>(
-              builder: (controller) => FormButton(
+            FormButton(
                 text: "Sign Up",
                 onPressed: controller.submitRegister,
               ),
-            ),
+
             
             
           ],

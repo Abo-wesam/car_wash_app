@@ -1,10 +1,14 @@
+import 'package:car_wash_app/Services/RegisterServs.dart';
+import 'package:car_wash_app/model/CustomerModel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterViewModel extends GetxController with SingleGetTickerProviderMixin{
+  FirebaseAuth _auth=FirebaseAuth.instance;
   late TabController tabController;
-late String email, password, confirmPassword;
-  String? emailError, passwordError;
+late String id, FullName, email, password, confirmPassword;
+  String? emailError, passwordError,name;
   final bike = ''.obs;
    @override
      void onInit() {
@@ -47,15 +51,41 @@ late String email, password, confirmPassword;
 
       isValid = false;
     }
+    if(FullName.isEmpty){
+      name='Enter your full name ';
+      isValid=false;
+    }
 
     return isValid;
   }
-  void submitRegister() {
-    if (validateRegister()) {
-      Get.snackbar('Sign Up', 'Login successfully');
-    } else {
-      Get.snackbar('Sign Up', 'Invalid email or password');
+  void submitRegister() async{
+    try {
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      final user = credential.user;
+      print(user);
+      if(user!=null){
+        CustomerModel customerModel=CustomerModel(user.uid,FullName,password,email);
+
+       if(await Registerservies().CreateNewUser(customerModel)){
+         Get.snackbar('Register','Register successfull');
+       }
+      }
+
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Get.snackbar('Register','The password provided is too weak.');
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        Get.snackbar('Register','The account already exists for that email.');
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
     }
   }
 
 }
+
