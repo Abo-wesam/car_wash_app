@@ -3,37 +3,29 @@
   ----------
   lib/screens/simple_login.dart
 */
-
-
 import 'package:car_wash_app/view/auth/register_page.dart';
-
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../view_model/login_view_model.dart';
 import '../widget/form_button.dart';
 import '../widget/input_field.dart';
 
 class LoginPage extends GetWidget<LoginViewModel> {
-  const LoginPage({super.key});
-
-  
+  GlobalKey<FormState> _globalKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      
+
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
-          
           shrinkWrap: true,
           children: [
             SizedBox(height: screenHeight * .02),
             Container(
+
               margin: const EdgeInsets.all(9),
                 height: 150,
                 width: 150,
@@ -58,7 +50,6 @@ class LoginPage extends GetWidget<LoginViewModel> {
 
                 InputField(
                 onChanged: (value) {
-                  
                     controller.email= value;
                   
                 },
