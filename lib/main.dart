@@ -14,7 +14,8 @@ Future<void>  main()  async  {
   WidgetsFlutterBinding.ensureInitialized();
 
    await Firebase.initializeApp(
-    options: const FirebaseOptions(
+    options:
+    const FirebaseOptions(
       apiKey: "AIzaSyAstC6WwEUAfDIANxYy7Q2xuig1LuEl0AM",
       appId: "1:156576147314:android:783c727aa984987b8f9feb",
       messagingSenderId: "156576147314",
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: Binding(),
+
       debugShowCheckedModeBanner: false,
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialBinding: Binding(),
       home:  Scaffold(
         body: LoginPage(),
       ),

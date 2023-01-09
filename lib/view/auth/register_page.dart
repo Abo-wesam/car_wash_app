@@ -6,13 +6,13 @@ import 'package:get/get.dart';
 
 import '../widget/custom_text.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends GetWidget<RegisterViewModel> {
   const RegisterPage({super.key});
   
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(RegisterViewModel());
+    // final controller = Get.put(RegisterViewModel());
 
     return SafeArea(
       child: Scaffold(
@@ -53,9 +53,11 @@ class RegisterPage extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   controller: controller.tabController,
-                  children: const [
+                  children:  [
                     RegisterPageCarwash(),
                     RegisterPageCustomer(),
+
+
                   ],
                 ),
               ),

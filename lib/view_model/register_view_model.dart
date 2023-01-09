@@ -19,7 +19,7 @@ late String id, FullName, email, password, confirmPassword;
     confirmPassword = "";
     emailError = null;
     passwordError = null;
-
+      name="";
     super.onInit();
   }
 
@@ -60,19 +60,23 @@ late String id, FullName, email, password, confirmPassword;
   }
   void submitRegister() async{
     try {
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      final user = credential.user;
-      print(user);
-      if(user!=null){
-        CustomerModel customerModel=CustomerModel(user.uid,FullName,password,email);
 
-       if(await Registerservies().CreateNewUser(customerModel)){
-         Get.snackbar('Register','Register successfull');
-       }
+      if(validateRegister()){
+        final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        final user = credential.user;
+        print(user);
+        if(user!=null){
+          CustomerModel customerModel=CustomerModel(user.uid,FullName,password,email);
+
+          if(await Registerservies().CreateNewUser(customerModel)){
+            Get.snackbar('Register','Register successfull');
+          }
+        }
       }
+
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

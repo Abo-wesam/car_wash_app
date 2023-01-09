@@ -42,16 +42,17 @@ class RegisterPageCustomer extends GetWidget<RegisterViewModel> {
               ),
             
             SizedBox(height: screenHeight * .02),
+
             InputField(
-                onChanged: (value) {
-                  controller.FullName = value;
-                },
-                
-                labelText: "Full Name",
-               errorText: controller.name,
-                obscureText: true,
-                textInputAction: TextInputAction.next,
-              ),
+              onChanged: (value) {
+                controller.FullName = value;
+              },
+              labelText: "Full Name",
+              errorText: controller.name,
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              autoFocus: true,
+            ),
 
             SizedBox(height: screenHeight * .025),
             InputField(

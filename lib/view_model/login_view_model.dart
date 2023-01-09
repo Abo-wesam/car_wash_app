@@ -34,7 +34,6 @@ class LoginViewModel extends GetxController {
     bool isValid = true;
     if (email.isEmpty || !emailExp.hasMatch(email)) {
       emailError = "Email is invalid";
-
       isValid = false;
     }
 
