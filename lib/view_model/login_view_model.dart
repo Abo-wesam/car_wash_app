@@ -1,8 +1,12 @@
+import 'package:car_wash_app/view/auth/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../Services/AuthService.dart';
+
 class LoginViewModel extends GetxController {
   FirebaseAuth _auth = FirebaseAuth.instance;
+  // var authService = Get.find<AuthService>();
   late String email, password;
   String? emailError, passwordError;
   // late final Function(String? email, String? password)? onSubmitted;
@@ -51,6 +55,8 @@ class LoginViewModel extends GetxController {
     if (validateLogin()) {
      await _auth.signInWithEmailAndPassword(email: email, password: password).then((value) => print(value.user));
       Get.snackbar('Login', 'Login successfully');
+     // print( _auth.currentUser.getIdTokenResult().then((value) => value.claims)) ;
+      Get.to(RegisterPage());
     } else {
       Get.snackbar('Login', 'Invalid email or password');
     }

@@ -7,8 +7,8 @@ import '../widget/input_field.dart';
 
 
 class RegisterPageCarwash extends  GetWidget<RegisterCarwashViewModel> {
-  const RegisterPageCarwash({super.key});
-
+  // const RegisterPageCarwash({super.key});
+  final _formKey = GlobalKey<FormState>();
   // @override
   // State<RegisterPageCarwash> createState() => _RegisterPageCarwashState();
   @override
@@ -18,6 +18,7 @@ class RegisterPageCarwash extends  GetWidget<RegisterCarwashViewModel> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
+
           children: [
             SizedBox(height: screenHeight * .02),
             Container(
@@ -126,13 +127,6 @@ class RegisterPageCarwash extends  GetWidget<RegisterCarwashViewModel> {
                 text: "Sign Up",
                 onPressed: controller.submitRegister,
               ),
-
-
-
-
-           
-            
-           
           ],
         ),
       ),
