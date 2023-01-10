@@ -21,6 +21,7 @@ class LoginPage extends GetWidget<LoginViewModel> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
+          key: _globalKey,
           shrinkWrap: true,
           children: [
             SizedBox(height: screenHeight * .02),
@@ -93,6 +94,7 @@ class LoginPage extends GetWidget<LoginViewModel> {
               height: screenHeight * .075,
             ),
          FormButton(
+
                 text: "Log In",
                 onPressed: controller.submitLogin,
               ),

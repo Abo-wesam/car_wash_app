@@ -65,8 +65,7 @@ class RegisterCarwashViewModel extends GetxController{
 
       try {
         if (validateRegister()) {
-          final credential = await FirebaseAuth.instance
-              .createUserWithEmailAndPassword(
+          final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: email,
             password: password,
           );
@@ -88,6 +87,9 @@ class RegisterCarwashViewModel extends GetxController{
               Get.snackbar('Register', 'Register successfull');
             }
           }
+        }
+        else{
+          Get.snackbar('Register', 'Please Fill the Data');
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {

@@ -1,3 +1,4 @@
+import 'package:car_wash_app/middleware/AuthGuardMiddleware.dart';
 import 'package:car_wash_app/view/auth/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,7 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:get/get.dart';
 
+import 'Services/AuthService.dart';
 import 'model/Binding/Binding.dart';
+import 'model/Binding/Routes.dart';
+
 
 Future<void>  main()  async  {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +25,9 @@ Future<void>  main()  async  {
       messagingSenderId: "156576147314",
       projectId: "carwashapp-56917", ),
   );
+  // var authService = Get.find<AuthService>();
+
+
   // FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
   runApp(
     DevicePreview(
@@ -48,10 +55,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialBinding: Binding(),
-      home:  Scaffold(
-        body: LoginPage(),
-      ),
+       initialBinding: Binding(),
+
+      getPages: Routes.routes,
+      // home:  Scaffold(
+      //   body: LoginPage(),
+      // ),
+
+      // getPages: [
+      //   GetPage(
+      //       name: Routes.Login,
+      //       page: () => LoginPage(),middlewares: [AuthGuardMiddleware()]
+      //   ),
+      //
+      // ],
     );
   }
 }
