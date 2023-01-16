@@ -1,3 +1,4 @@
+
 import 'package:car_wash_app/middleware/AuthGuardMiddleware.dart';
 import 'package:car_wash_app/view/auth/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,6 +9,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Services/AuthService.dart';
 import 'model/Binding/Binding.dart';

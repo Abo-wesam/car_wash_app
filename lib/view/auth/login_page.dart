@@ -3,6 +3,8 @@
   ----------
   lib/screens/simple_login.dart
 */
+import 'package:car_wash_app/model/Binding/Routes.dart';
+import 'package:car_wash_app/view/auth/ForgetPassword.dart';
 import 'package:car_wash_app/view/auth/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -81,7 +83,9 @@ class LoginPage extends GetWidget<LoginViewModel> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(Routes.ResetPass);
+                },
                 child: const Text(
                   "Forgot Password?",
                   style: TextStyle(
@@ -104,7 +108,7 @@ class LoginPage extends GetWidget<LoginViewModel> {
             ),
             TextButton(
                  onPressed: () {
-                  Get.to(const RegisterPage());
+                  Get.to(RegisterPage());
                  },
                 
                 child: RichText(
