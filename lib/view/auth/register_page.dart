@@ -4,11 +4,12 @@ import 'package:car_wash_app/view_model/register_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/GoBack.dart';
 import '../widget/custom_text.dart';
 
 class RegisterPage extends GetWidget<RegisterViewModel> {
   const RegisterPage({super.key});
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,7 @@ class RegisterPage extends GetWidget<RegisterViewModel> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: Goback(),
           title: const Text("Register"),
         ),
         body: Padding(

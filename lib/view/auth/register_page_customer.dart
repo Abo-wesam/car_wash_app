@@ -20,7 +20,6 @@ class RegisterPageCustomer extends GetWidget<RegisterViewModel> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
           children: [
-            
             SizedBox(height: screenHeight * .02),
              Container(
               margin: const EdgeInsets.all(9),
@@ -30,7 +29,6 @@ class RegisterPageCustomer extends GetWidget<RegisterViewModel> {
                   image: const DecorationImage(
                     alignment: Alignment.center,
                     scale: 3.5,
-                    
                     image: AssetImage("images/logo.png"),
                   ),
                   border: Border.all(
