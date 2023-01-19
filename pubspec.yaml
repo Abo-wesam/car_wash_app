@@ -47,6 +47,7 @@ dependencies:
   material_design_icons_flutter: 3.4.4595
   fancy_bottom_navigation: ^0.3.3
   shared_preferences: ^2.0.16
+  flutter_colorpicker: ^1.0.3
 
 
 dev_dependencies:

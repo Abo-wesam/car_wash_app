@@ -76,9 +76,9 @@ class LoginPage extends GetWidget<LoginViewModel> {
                 labelText: "Password",
                 errorText: controller.passwordError,
                 obscureText: true,
-                textInputAction: TextInputAction.next,
-              ),
-              
+           textInputAction: TextInputAction.next,
+         ),
+
 
             Align(
               alignment: Alignment.centerRight,
@@ -97,10 +97,10 @@ class LoginPage extends GetWidget<LoginViewModel> {
             SizedBox(
               height: screenHeight * .075,
             ),
-         FormButton(
+            FormButton(
 
-                text: "Log In",
-                onPressed: controller.submitLogin,
+              text: "Log In",
+              onPressed: controller.submitLogin,
               ),
 
             SizedBox(

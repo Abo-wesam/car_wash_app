@@ -9,6 +9,7 @@ class InputField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final bool autoFocus;
   final bool obscureText;
+  final Icon? icon;
   const InputField(
       {this.labelText,
       this.onChanged,
@@ -18,6 +19,8 @@ class InputField extends StatelessWidget {
       this.textInputAction,
       this.autoFocus = false,
       this.obscureText = false,
+        this.icon,
+
       Key? key})
       : super(key: key);
 
@@ -37,6 +40,7 @@ class InputField extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
         ),
+        icon: icon,
       ),
     );
   }

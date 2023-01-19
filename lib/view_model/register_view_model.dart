@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 
 class RegisterViewModel extends GetxController with SingleGetTickerProviderMixin{
   FirebaseAuth _auth=FirebaseAuth.instance;
+
+
   late TabController tabController;
 late String id, FullName, email, password, confirmPassword;
   String? emailError, passwordError,name;
@@ -66,6 +68,7 @@ late String id, FullName, email, password, confirmPassword;
           email: email,
           password: password,
         );
+
         final user = credential.user;
         print(user);
         if(user!=null){

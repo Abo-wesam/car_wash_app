@@ -68,6 +68,7 @@ class RegisterCarwashViewModel extends GetxController{
           final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: email,
             password: password,
+
           );
           final user = credential.user;
           print(user);
