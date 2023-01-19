@@ -23,7 +23,7 @@ class ProfilController extends GetxController {
   }
   _GetListCar()async{
     carlist=SettingService().getCars() as Rx<List<CarModel>>;
-    carlist.a
+
 
 
 
