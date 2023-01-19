@@ -56,15 +56,16 @@ class LoginViewModel extends GetxController {
 
 
   void submitLogin()async {
+    SharedPreferences _prefe=await SharedPreferences.getInstance();
     if (validateLogin()) {
-     await _auth.signInWithEmailAndPassword(email: email, password: password).then((value) => print(value.user));
-      Get.snackbar('Login', 'Login successfully');
-     // print( _auth.currentUser.getIdTokenResult().then((value) => value.claims)) ;
-     SharedPreferences prefs = await SharedPreferences.getInstance();
-     prefs.setString(Data_Current_User,json.encode(_auth.currentUser));
+     await _auth.signInWithEmailAndPassword(email: email, password: password)
+         .then((value) => print(value.user) );
+     var uesr=_auth.currentUser;
+     _prefe.setString(Data_Current_User, json.encode(uesr?.uid));
+    print(_prefe.getString(Data_Current_User));
+     Get.snackbar('Login', 'Login successfully');
+     Get.to(Dashboard());
 
-
-      Get.to(Dashboard());
     } else {
       Get.snackbar('Login', 'Invalid email or password');
     }
