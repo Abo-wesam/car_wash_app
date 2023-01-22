@@ -7,9 +7,14 @@ import '../../view_model/register_view_model.dart';
 import '../widget/form_button.dart';
 import '../widget/input_field.dart';
 
-class RegisterPageCustomer extends StatelessWidget {
+class RegisterPageCustomer extends StatefulWidget {
   const RegisterPageCustomer({super.key});
 
+  @override
+  State<RegisterPageCustomer> createState() => _RegisterPageCustomerState();
+}
+
+class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
