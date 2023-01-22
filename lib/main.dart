@@ -1,5 +1,7 @@
 
+import 'package:car_wash_app/constant.dart';
 import 'package:car_wash_app/view/auth/login_page.dart';
+import 'package:car_wash_app/view/home_page.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'Car wash app',
       theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         primarySwatch: Colors.blue,
       ),
       home: const Scaffold(
