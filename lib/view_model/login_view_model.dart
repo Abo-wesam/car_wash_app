@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Services/AuthService.dart';
 import '../constant.dart';
-import '../view/CarWashPags/Dashboard_Page.dart';
+import '../view/Dashboard_Page.dart';
 
 class LoginViewModel extends GetxController {
 
