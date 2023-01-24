@@ -3,16 +3,11 @@
   ----------
   lib/screens/simple_login.dart
 */
-
-
+import 'package:car_wash_app/model/Binding/Routes.dart';
 import 'package:car_wash_app/view/auth/register_page.dart';
-
-
-
+import 'package:car_wash_app/view_model/login_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../view_model/login_view_model.dart';
 import '../widget/form_button.dart';
 import '../widget/input_field.dart';
 
@@ -27,17 +22,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    final controller = Get.put(LoginViewModel());
 
     return Scaffold(
-      
+
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
-          
+          key: _globalKey,
           shrinkWrap: true,
           children: [
             SizedBox(height: screenHeight * .02),
             Container(
+
               margin: const EdgeInsets.all(9),
                 height: 150,
                 width: 150,
@@ -59,14 +56,9 @@ class _LoginPageState extends State<LoginPage> {
             
             SizedBox(
               height: screenHeight * .1),
-              GetBuilder<LoginViewModel>(
-                init: LoginViewModel(),
 
-                builder:(controller) =>  
-                
                 InputField(
                 onChanged: (value) {
-                  
                     controller.email= value;
                   
                 },
@@ -76,14 +68,10 @@ class _LoginPageState extends State<LoginPage> {
                 textInputAction: TextInputAction.next,
                 autoFocus: true,
               ),
-              
-                
-              
-              
-            ),
+
             SizedBox(
               height: screenHeight * .025),
-              GetBuilder<LoginViewModel>(builder:(controller) => 
+
               InputField(
                 onChanged: (value) {
                   
@@ -94,19 +82,16 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: "Password",
                 errorText: controller.passwordError,
                 obscureText: true,
-                textInputAction: TextInputAction.next,
-              ),
-              
-              
-              
-              
-            ),
-            
-            
+           textInputAction: TextInputAction.next,
+         ),
+
+
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(Routes.ResetPass);
+                },
                 child: const Text(
                   "Forgot Password?",
                   style: TextStyle(
@@ -118,19 +103,18 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: screenHeight * .075,
             ),
-            GetBuilder<LoginViewModel>(
-              builder:(controller) =>  FormButton(
-                text: "Log In",
-                onPressed: controller.submitLogin,
+            FormButton(
+
+              text: "Log In",
+              onPressed: controller.submitLogin,
               ),
-            ),
+
             SizedBox(
               height: screenHeight * .015,
             ),
-            GetBuilder<LoginViewModel>(
-              builder:(controller) =>  TextButton(
+            TextButton(
                  onPressed: () {
-                  Get.to(const RegisterPage());
+                  Get.to(RegisterPage());
                  },
                 
                 child: RichText(
@@ -149,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-            )
+
           ],
         ),
       ),

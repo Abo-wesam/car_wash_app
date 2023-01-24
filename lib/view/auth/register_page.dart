@@ -4,19 +4,21 @@ import 'package:car_wash_app/view_model/register_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/GoBack.dart';
 import '../widget/custom_text.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends GetWidget<RegisterViewModel> {
   const RegisterPage({super.key});
-  
+
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(RegisterViewModel());
+    // final controller = Get.put(RegisterViewModel());
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: Goback(),
           title: const Text("Register"),
         ),
         body: Padding(
@@ -53,9 +55,11 @@ class RegisterPage extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   controller: controller.tabController,
-                  children: const [
+                  children:  [
                     RegisterPageCarwash(),
                     RegisterPageCustomer(),
+
+
                   ],
                 ),
               ),

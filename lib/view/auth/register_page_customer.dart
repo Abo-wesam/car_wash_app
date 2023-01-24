@@ -18,14 +18,13 @@ class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    //final controller = Get.put(RegisterViewModel());
+    final controller = Get.put(RegisterViewModel());
 
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
           children: [
-            
             SizedBox(height: screenHeight * .02),
              Container(
               margin: const EdgeInsets.all(9),
@@ -35,7 +34,6 @@ class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
                   image: const DecorationImage(
                     alignment: Alignment.center,
                     scale: 3.5,
-                    
                     image: AssetImage("images/logo.png"),
                   ),
                   border: Border.all(
@@ -47,23 +45,20 @@ class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
               ),
             
             SizedBox(height: screenHeight * .02),
-            GetBuilder<RegisterViewModel>(
-              init: RegisterViewModel(),
-              builder: (controller) => InputField(
-                onChanged: (value) {
-                  controller.password = value;
-                },
-                
-                labelText: "Full Name",
-                errorText: controller.passwordError,
-                obscureText: true,
-                textInputAction: TextInputAction.next,
-              ),
+
+            InputField(
+              onChanged: (value) {
+                controller.FullName = value;
+              },
+              labelText: "Full Name",
+              errorText: controller.name,
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              autoFocus: true,
             ),
+
             SizedBox(height: screenHeight * .025),
-            GetBuilder<RegisterViewModel>(
-              
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
                   controller.email = value;
                 },
@@ -73,10 +68,9 @@ class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
                 textInputAction: TextInputAction.next,
                 autoFocus: true,
               ),
-            ),
+
             SizedBox(height: screenHeight * .025),
-            GetBuilder<RegisterViewModel>(
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
                   controller.password = value;
                 },
@@ -86,10 +80,9 @@ class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
                 obscureText: true,
                 textInputAction: TextInputAction.next,
               ),
-            ),
+
             SizedBox(height: screenHeight * .025),
-            GetBuilder<RegisterViewModel>(
-              builder: (controller) => InputField(
+            InputField(
                 onChanged: (value) {
                   controller.confirmPassword = value;
                 },
@@ -98,16 +91,15 @@ class _RegisterPageCustomerState extends State<RegisterPageCustomer> {
                 obscureText: true,
                 textInputAction: TextInputAction.done,
               ),
-            ),
+
             SizedBox(
               height: screenHeight * .050,
             ),
-            GetBuilder<RegisterViewModel>(
-              builder: (controller) => FormButton(
+            FormButton(
                 text: "Sign Up",
                 onPressed: controller.submitRegister,
               ),
-            ),
+
             
             
           ],
