@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
-          key: _globalKey,
+         // key: _globalKey,
           shrinkWrap: true,
           children: [
             SizedBox(height: screenHeight * .02),
