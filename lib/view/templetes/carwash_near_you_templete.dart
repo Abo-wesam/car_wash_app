@@ -55,7 +55,9 @@ class CarwashNearYouTemplet extends StatelessWidget {
                     Text(
                       announcement.time,
                       style:
+
                       const TextStyle(color: kTextLigthColor, fontSize: 10),
+
                     ),
                     const SizedBox(
                       width: 8,
@@ -63,7 +65,9 @@ class CarwashNearYouTemplet extends StatelessWidget {
                     Text(
                       announcement.date,
                       style:
+
                       const TextStyle(color: kTextLigthColor, fontSize: 10),
+
                     ),
                     const SizedBox(
                       height: 4,
@@ -74,7 +78,9 @@ class CarwashNearYouTemplet extends StatelessWidget {
                         color: Colors.amber,
                         size: 24.0,
                         semanticLabel:
+
                         'Text to announce in accessibility modes',
+
                       ),
                       const SizedBox(
                         width: 27,
@@ -97,7 +103,9 @@ class CarwashNearYouTemplet extends StatelessWidget {
         );
       },
       separatorBuilder: (BuildContext context, int index) =>
+
       const SizedBox(width: 10),
+
     );
   }
 }

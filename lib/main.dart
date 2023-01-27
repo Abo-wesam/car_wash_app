@@ -1,7 +1,7 @@
 
-import 'package:car_wash_app/middleware/AuthGuardMiddleware.dart';
+import 'package:car_wash_app/constant.dart';
 import 'package:car_wash_app/view/auth/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:car_wash_app/view/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/foundation.dart';
@@ -9,9 +9,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Services/AuthService.dart';
 import 'model/Binding/Binding.dart';
 import 'model/Binding/Routes.dart';
 
@@ -55,6 +53,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'Car wash app',
       theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         primarySwatch: Colors.blue,
       ),
        initialBinding: Binding(),
