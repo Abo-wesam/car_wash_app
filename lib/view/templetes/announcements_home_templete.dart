@@ -7,14 +7,14 @@ class AnnouncementsHomeTemplete extends StatelessWidget {
   const AnnouncementsHomeTemplete({super.key});
   @override
   Widget build(BuildContext context) {
-     
+
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: announcements.length,
       itemBuilder: (context, index) {
         final announcement = announcements[index];
         return Ink(
-          
+
           decoration: BoxDecoration(
               border: Border.all(
                   width: 1.3, color: Colors.blue, style: BorderStyle.solid),
@@ -22,12 +22,12 @@ class AnnouncementsHomeTemplete extends StatelessWidget {
               borderRadius: BorderRadius.circular(16)),
           child: InkWell(
             onTap: () {
-              
+
             },
             child: Column(children: [
               const SizedBox(height: 10,),
               Container(
-                
+
                 padding: const EdgeInsets.all(10.0),
                 height: 50,
                 width: 50,
@@ -69,8 +69,7 @@ class AnnouncementsHomeTemplete extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              
-                
+
             ]),
           ),
         );
@@ -79,4 +78,6 @@ class AnnouncementsHomeTemplete extends StatelessWidget {
     );
 
   }
+
 }
+

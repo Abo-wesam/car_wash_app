@@ -1,29 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class CustomerModel {
+  final String? id, FullName, Password, email;
 
-  late String id, FullName,Password,email;
+  CustomerModel(
+      { this.id,
+       this.FullName,
+       this.Password,
+       this.email});
 
- CustomerModel(this.id,this.FullName, this.Password, this.email);
+  factory CustomerModel.fromsnapshot(DocumentSnapshot<Map<String, dynamic>> user) {
+    final Data = user.data()!;
+    return CustomerModel(
+        id: Data['id'],
+        FullName: Data['FullName'],
+        email: Data['email'],
+        Password: Data['Password']);
+  }
 
- CustomerModel.fromjson(Map<dynamic,dynamic>user){
-   if(user==null){
-     return;
-   }
-   id=user['id'];
-   FullName=user['FullName'];
-   email=user['email'];
-   Password=user['Password'];
-
- }
- tojson(){
-   return {
-     'id':id,
-    'FullName':FullName,
-     'email':email,
-     'Password':Password
-
-
-   };
- }
-
-
+  tojson() {
+    return {
+      'id': id,
+      'FullName': FullName,
+      'email': email,
+      'Password': Password
+    };
+  }
 }
