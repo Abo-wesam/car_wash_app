@@ -7,7 +7,7 @@ import '../../view_model/HomeController.dart';
 import '../templetes/announcements_home_templete.dart';
 import '../templetes/carwash_near_you_templete.dart';
 
-class HomePage extends GetWidget<HomeController>{
+class HomePageCarwash extends GetWidget<HomeController>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

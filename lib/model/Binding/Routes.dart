@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../../middleware/AuthGuardMiddleware.dart';
 import '../../view/Account_Page.dart';
 import '../../view/AddNewCarPage.dart';
+import '../../view/CarWashPags/Home.dart';
 import '../../view/Dashboard_Page.dart';
 import '../../view/PasswordPage.dart';
 import '../../view/ProfilePage.dart';
@@ -18,7 +19,7 @@ class Routes {
   static String Register = '/RegisterPage';
   static String ResetPass = '/ForgetPassword';
   static String dashboard = '/Dashboard';
-  static String home = '/Home';
+  static String home = '/';
   static String Password = '/PasswordPage';
   static String profile = '/ProfilePage';
   static String Schedule = '/Schedulepage';
@@ -49,7 +50,7 @@ class Routes {
     ),
     GetPage(
       name: Routes.home,
-      page: () =>  HomePage(),
+      page: () =>  HomePageCarwash(),
     ),
     GetPage(
       name: Routes.Password,
