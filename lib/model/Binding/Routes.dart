@@ -13,11 +13,11 @@ import '../../view/auth/login_page.dart';
 import '../../view/auth/register_page.dart';
 
 class Routes {
-  static String Login = '/';
+  static String Login = '/LoginPage';
   static String Register = '/RegisterPage';
   static String ResetPass = '/ForgetPassword';
   static String dashboard = '/Dashboard';
-  static String home = '/Home';
+  static String home = '/';
   static String Password = '/PasswordPage';
   static String profile = '/ProfilePage';
   static String Schedule = '/Schedulepage';
