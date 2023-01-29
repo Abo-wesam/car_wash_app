@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'package:car_wash_app/view/CarWashPags/Schedul_Page.dart';
+import 'package:car_wash_app/view/widget/CustomAnimatedBottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../view_model/dashboardController.dart';
-import '../widget/CustomAnimatedBottomBar.dart';
 import 'Account_Page.dart';
-import 'Home.dart';
+import 'Schedul_Page.dart';
+import 'home_page.dart';
 
 class Dashboard extends StatefulWidget  {
   @override

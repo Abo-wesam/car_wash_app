@@ -1,26 +1,29 @@
-import 'package:car_wash_app/view/CarWashPags/Home.dart';
+
 import 'package:car_wash_app/view/auth/ForgetPassword.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../middleware/AuthGuardMiddleware.dart';
-import '../../view/CarWashPags/Dashboard_Page.dart';
-import '../../view/CarWashPags/Dashboard_Page.dart';
-import '../../view/CarWashPags/Dashboard_Page.dart';
-import '../../view/CarWashPags/PasswordPage.dart';
-import '../../view/CarWashPags/ProfilePage.dart';
-import '../../view/CarWashPags/Schedul_Page.dart';
+import '../../view/Account_Page.dart';
+import '../../view/AddNewCarPage.dart';
+import '../../view/Dashboard_Page.dart';
+import '../../view/PasswordPage.dart';
+import '../../view/ProfilePage.dart';
+import '../../view/Schedul_Page.dart';
 import '../../view/auth/login_page.dart';
 import '../../view/auth/register_page.dart';
+import '../../view/home_page.dart';
 
 class Routes {
   static String Login = '/LoginPage';
   static String Register = '/RegisterPage';
   static String ResetPass = '/ForgetPassword';
   static String dashboard = '/Dashboard';
-  static String home = '/';
+  static String home = '/Home';
   static String Password = '/PasswordPage';
   static String profile = '/ProfilePage';
   static String Schedule = '/Schedulepage';
+  static String EditaddCarpage = '/editaddcarpage';
+  static String Account_Page = '/AccountPage';
 
 
 
@@ -59,6 +62,13 @@ class Routes {
     GetPage(
       name: Routes.Schedule,
       page: () =>  Schedulepage(),
+    ),
+    GetPage(
+      name: Routes.EditaddCarpage,
+      page: () =>  editaddcarpage(),
+    ),GetPage(
+      name: Routes.Account_Page,
+      page: () =>  AccountPage(),
     ),
   ];
 

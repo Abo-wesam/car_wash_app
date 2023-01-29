@@ -11,7 +11,7 @@ class Registerservies{
   CollectionReference _referenceCarWash=FirebaseFirestore.instance.collection('CarWash');
   CreateNewUser(CustomerModel user) async{
     await _collectionReference.doc(user.id).set(user.tojson());
-    CreateUserClaims(user.id,'Customer');
+   // CreateUserClaims(user.id,'Customer');
     return true;
   }
   CreateNewCarWash(CarWashModel user) async{

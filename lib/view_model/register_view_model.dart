@@ -72,7 +72,7 @@ late String id, FullName, email, password, confirmPassword;
         final user = credential.user;
         print(user);
         if(user!=null){
-          CustomerModel customerModel=CustomerModel(user.uid,FullName,password,email);
+          CustomerModel customerModel=CustomerModel(id: user.uid,FullName: FullName,Password:password,email:email);
 
           if(await Registerservies().CreateNewUser(customerModel)){
             Get.snackbar('Register','Register successfull');

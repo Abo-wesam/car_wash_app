@@ -10,6 +10,7 @@ class InputField extends StatelessWidget {
   final bool autoFocus;
   final bool obscureText;
   final Icon? icon;
+  final TextEditingController? showtext;
   const InputField(
       {this.labelText,
       this.onChanged,
@@ -20,6 +21,7 @@ class InputField extends StatelessWidget {
       this.autoFocus = false,
       this.obscureText = false,
         this.icon,
+        this.showtext,
 
       Key? key})
       : super(key: key);
@@ -27,18 +29,21 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: showtext,
       autofocus: autoFocus,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       obscureText: obscureText,
+
       decoration: InputDecoration(
         labelText: labelText,
         errorText: errorText,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12) ,
+
         ),
         icon: icon,
       ),
