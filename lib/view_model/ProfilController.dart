@@ -12,24 +12,27 @@ import '../constant.dart';
 import '../model/CarModel.dart';
 
 class ProfilController extends GetxController {
-
   User? user = FirebaseAuth.instance.currentUser;
+  late  bool enabletoEdit=false;
   late String Type_car, license_plate;
-  late String idcar='';
+  late String idcar = '';
   late String colorSelected;
   late String Email;
   late String CUrrentPass = '';
   late String ConfirmPasswor = '';
   late String NewPassword = '';
   late String ConfirmPassworderror = '';
- late  bool isAdd=false;
-late  CarModel carModel=[] as CarModel;
-
-
-
+  late bool isAdd = false;
+  late CarModel carModel = [] as CarModel;
 
   void onInit() async {
+    SharedPreferences _pref = await SharedPreferences.getInstance();
     super.onInit();
+
+
+  }
+  @override
+  void autoReload() {
   }
 
   Future<List<CarModel>> GetListCar() async {
@@ -37,7 +40,7 @@ late  CarModel carModel=[] as CarModel;
   }
 
   Future<CustomerModel> getDataUser() async {
-  return SettingService().GetUserdata();
+    return SettingService().GetUserdata();
   }
 
   bool ValidateCar() {
@@ -50,9 +53,12 @@ late  CarModel carModel=[] as CarModel;
 
   CreateNewCar() {
     if (ValidateCar()) {
-      CarModel carModel = CarModel(car_type: Type_car, color_car: colorSelected, license_plate: license_plate);
+      CarModel carModel = CarModel(
+          car_type: Type_car,
+          color_car: colorSelected,
+          license_plate: license_plate);
       // CarModel({car_type:Type_car,color_car :colorSelected,license_plate: license_plate});
-        SettingService().CreateNewCar(carModel);
+      SettingService().CreateNewCar(carModel);
     }
   }
 
@@ -83,13 +89,26 @@ late  CarModel carModel=[] as CarModel;
       });
     }
   }
-  updataDataUser(CustomerModel user){
-  SettingService().UpdateUserProfile(user);
-      Get.snackbar("Update", "Profile Updated Successfull");
+
+  updataDataUser(CustomerModel user) {
+    SettingService().UpdateUserProfile(user);
+    Get.snackbar("Update", "Profile Updated Successfull");
   }
 
- Future<CarModel> handlingupdateCar(){
-    return  SettingService().GetCarBYid(idcar);
- }
+  handlingupdateCar(CarModel carModel) {
+    SettingService().UpdateCar(carModel);
+    Get.snackbar("Update", 'Car Updated Successfull');
+  }
 
+  Future<CarModel> GetCarByid() {
+    return SettingService().GetCarBYid(idcar);
+  }
+  void enableEdit() {
+      enabletoEdit=true;
+      print(enabletoEdit);
+      autoReload();
+  }
+
+
+  
 }

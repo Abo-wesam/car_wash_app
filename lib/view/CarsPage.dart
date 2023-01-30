@@ -62,6 +62,10 @@ class CarsPage extends GetWidget<ProfilController> {
                                   SizedBox(width: 50),
                                   IconButton(onPressed:(){
                                     controller.isAdd=false;
+                                    controller.idcar= snapshot.data![index].id_car!;
+                                    print( controller.idcar);
+                                    controller.GetCarByid();
+
                                     Get.to(editaddcarpage());
                                   } , icon: Icon( Icons.edit),
                                       hoverColor:Color(0xFF6200EE),

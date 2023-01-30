@@ -5,19 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../view_model/AccountController.dart';
+import '../view_model/ProfilController.dart';
 import 'CarsPage.dart';
 import 'PasswordPage.dart';
 import 'ProfilePage.dart';
 
-class AccountPage extends GetWidget<AccountController> {
+class AccountPage extends GetWidget<AccountController>  {
+  final double coverHight = 120;
+  final double profileHight = 100;
   @override
   Widget build(BuildContext context) {
+
+    final top = coverHight - profileHight;
+    final bottom = profileHight / 2;
     Icon editicon = new Icon(Icons.edit);
     FirebaseAuth _auth = FirebaseAuth.instance;
-    late TextEditingController _name =
-        TextEditingController.fromValue(TextEditingValue(text: 'Hemoo'));
 
     double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -35,53 +40,69 @@ class AccountPage extends GetWidget<AccountController> {
           child: Column(
             children: [
               Container(
-                  margin: EdgeInsets.all(9),
-                  height: 100,
-                  //Handling photo for User
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                margin: EdgeInsets.all(9),
+                height: 100,
+                //Handling photo for User
+                child: Center(
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.center,
                     children: [
-                      Expanded(
-                          child: Stack(
-                              children: [
-                        Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                          CircleAvatar(
-                            radius: 50,
-                            backgroundImage: AssetImage("images/Account.png"),
-                          ),
-                          SizedBox(height: screenHeight * 0.01),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(onPressed: (){
-
-                              }, icon: Icon(Icons.edit)),
-                              // SizedBox(height: screenHeight * 0.01),
-                              // TextField(
-                              //   controller: _name,
-                              // )
-                            ],
-
-                          )
-
-
-                        ]),
-                      ]))
-
-                      //SizedBox(height: 20.0),
+                      Container(
+                        margin: EdgeInsets.only(bottom: bottom),
+                      ),
+                      CoverProfile(),
+                      Positioned(top: top, child: ImageProfile()),
                     ],
-                  )),
-              SizedBox(height: screenHeight * 0.03),
+                  ),
+                ),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    IconButton(onPressed: () {
+                      ProfilController prof=Get.put(ProfilController());
+                      prof.enableEdit();
+                      prof.update();
+
+                    }
+                    , icon: Icon(Icons.edit)),
+                    SizedBox(
+                      width: 110,
+                    ),
+                    Text(
+                      "Car_Wash",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 70,
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        )),
+                  ],
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.025),
               Container(
                 margin: const EdgeInsets.all(9),
                 height: 100,
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
+                decoration: BoxDecoration(
+                  // border: Border.all(color: Colors.black, width: 4),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff5808e5),
+                  // backgroundColor: Color(0xff5808e5),
                 ),
                 child: TabBar(
+                  indicatorColor: Colors.white,
                   controller: controller.tabController,
                   labelColor: Colors.blue,
                   unselectedLabelColor: Colors.grey,
@@ -90,14 +111,17 @@ class AccountPage extends GetWidget<AccountController> {
                     Tab(
                       child: CustomText(
                           text: 'Profile', alignment: Alignment.center),
+                      icon: Icon(Icons.person_off_sharp),
                     ),
                     Tab(
                       child: CustomText(
                           text: 'Password', alignment: Alignment.center),
+                      icon: Icon(Icons.password),
                     ),
                     Tab(
                       child: CustomText(
                           text: 'My Cars', alignment: Alignment.center),
+                      icon: Icon(Icons.car_crash),
                     ),
                   ],
                 ),
@@ -118,4 +142,16 @@ class AccountPage extends GetWidget<AccountController> {
       ),
     );
   }
+
+  Widget CoverProfile() => Container(
+        width: double.infinity,
+        height: profileHight,
+      );
+
+  /// Profile Image For User
+  Widget ImageProfile() => CircleAvatar(
+        radius: profileHight / 2,
+        backgroundColor: Colors.grey.shade800,
+        backgroundImage: AssetImage('images/Account.png'),
+      );
 }

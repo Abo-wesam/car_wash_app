@@ -13,14 +13,12 @@ import '../constant.dart';
 import '../model/CustomerModel.dart';
 import '../view/Account_Page.dart';
 
-
 class SettingService {
   CollectionReference _ReferenceCar =
       FirebaseFirestore.instance.collection('CarTb');
   CollectionReference _ReferenceCust =
       FirebaseFirestore.instance.collection('Customer');
   FirebaseAuth _auth = FirebaseAuth.instance;
-
 
 // final _pref=SharedPreferences.getInstance();
 
@@ -38,22 +36,20 @@ class SettingService {
   }
 
   CreateNewCar(CarModel car) async {
-
-      if (!await isExsist(car.car_type, "CarTb","car_type")) {
-        SharedPreferences _prefe = await SharedPreferences.getInstance();
-        var getcount = await _ReferenceCar.doc().get();
-        var custId = _prefe.getString(Data_Current_User);
-        car.id_cust = custId!;
-        car.id_car = getRandomString(5);
-        print(car.id_cust);
-        await _ReferenceCar.doc(car.id_car).set(car.tojson());
-        Get.snackbar("CreateCar", "Operations Successfull");
-        Get.to(AccountPage());
-      }
-
-      Get.snackbar("CreateCar", "Car alrady Exsist");
+    if (!await isExsist(car.car_type, "CarTb", "car_type")) {
+      SharedPreferences _prefe = await SharedPreferences.getInstance();
+      var getcount = await _ReferenceCar.doc().get();
+      var custId = _prefe.getString(Data_Current_User);
+      car.id_cust = custId!;
+      car.id_car = getRandomString(5);
+      print(car.id_cust);
+      await _ReferenceCar.doc(car.id_car).set(car.tojson());
+      Get.snackbar("CreateCar", "Operations Successfull");
       Get.to(AccountPage());
+    }
 
+    Get.snackbar("CreateCar", "Car alrady Exsist");
+    Get.to(AccountPage());
   }
 
   Future<CustomerModel> GetUserdata() async {
@@ -83,16 +79,22 @@ class SettingService {
     return userdata;
   }
 
- Future<bool>  isExsist(String parm, String tblName,String docName) async {
+  Future<bool> isExsist(String parm, String tblName, String docName) async {
+    final result = await FirebaseFirestore.instance
+        .collection(tblName)
+        .where(docName, isEqualTo: parm)
+        .get();
 
-  final result =
-        await FirebaseFirestore.instance.collection(tblName).where(docName,isEqualTo: parm).get();
-
-    if (!(result==null)) {
+    if (!(result == null)) {
       print('check done');
       return true;
     }
     print('check no');
     return false;
+  }
+
+  void UpdateCar(CarModel carModel) {
+    print(carModel.tojson());
+    _ReferenceCar.doc(carModel.id_car).update(carModel.tojson());
   }
 }

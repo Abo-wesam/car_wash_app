@@ -11,6 +11,7 @@ import '../../view_model/ProfilController.dart';
 class ProfilePage extends GetWidget<ProfilController> {
   @override
   Widget build(BuildContext context) {
+
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Padding(
@@ -47,13 +48,14 @@ class ProfilePage extends GetWidget<ProfilController> {
                               //       errorText: controller.name,
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
+                              enabled: controller.enabletoEdit,
                             ),
 
                             SizedBox(height: screenHeight * .025),
                             TextFormField(
                               controller: emailedit,
-
                               textInputAction: TextInputAction.next,
+                              enabled: controller.enabletoEdit,
                             ),
 
                             SizedBox(height: screenHeight * .025),

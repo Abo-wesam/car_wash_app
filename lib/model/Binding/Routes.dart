@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../../middleware/AuthGuardMiddleware.dart';
 import '../../view/Account_Page.dart';
 import '../../view/AddNewCarPage.dart';
+import '../../view/CarwashAccount_pag.dart';
 import '../../view/Dashboard_Page.dart';
 import '../../view/PasswordPage.dart';
 import '../../view/ProfilePage.dart';

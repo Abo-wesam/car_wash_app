@@ -1,5 +1,6 @@
 
 import 'package:car_wash_app/middleware/AuthGuardMiddleware.dart';
+import 'package:car_wash_app/view/CarwashAccount_pag.dart';
 import 'package:car_wash_app/view/auth/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,10 +28,6 @@ Future<void>  main()  async  {
       messagingSenderId: "156576147314",
       projectId: "carwashapp-56917", ),
   );
-  // var authService = Get.find<AuthService>();
-
-
-  // FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
@@ -38,12 +35,8 @@ Future<void>  main()  async  {
     ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -57,11 +50,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-       initialBinding: Binding(),
-
-      getPages: Routes.routes,
+        initialBinding: Binding(),
+       getPages: Routes.routes,
       // home:  Scaffold(
-      //   body: LoginPage(),
+      //   body: CarwashAccount(),
       // ),
 
       // getPages: [

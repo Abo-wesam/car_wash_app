@@ -60,10 +60,12 @@ class LoginViewModel extends GetxController {
     if (validateLogin()) {
      await _auth.signInWithEmailAndPassword(email: email, password: password)
          .then((value) => print(value.user) );
-     var uesr=_auth.currentUser;
-     _prefe.setString(Data_Current_User, json.encode(uesr?.uid));
+     var user=_auth.currentUser;
+     // String? email=user?.email;
+     _prefe.setString(Data_Current_User, json.encode(user?.uid));
     print(_prefe.getString(Data_Current_User));
      Get.snackbar('Login', 'Login successfully');
+     AuthService().CheckForUser(email);
      Get.to(Dashboard());
 
     } else {
