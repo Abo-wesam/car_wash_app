@@ -70,7 +70,6 @@ class AnnouncementsHomeTemplete extends StatelessWidget {
                 ),
               ),
 
-
             ]),
           ),
         );
@@ -79,4 +78,6 @@ class AnnouncementsHomeTemplete extends StatelessWidget {
     );
 
   }
+
 }
+

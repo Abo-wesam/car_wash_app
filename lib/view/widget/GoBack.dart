@@ -19,7 +19,7 @@ class Goback extends StatelessWidget {
               Get.back();
               // Navigator.pop(context);
             },
-         child:  Icon(Icons.arrow_back_ios_rounded),
+         child:  const Icon(Icons.arrow_back_ios_rounded),
           //replace with our own icon data.
         ),
 

@@ -33,6 +33,7 @@ class Routes {
     GetPage(
       name: Routes.Login,
       page: () => LoginPage(),
+      
     ),
 
     GetPage(
