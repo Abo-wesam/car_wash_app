@@ -17,3 +17,4 @@ List <Announcement> announcements=[
   Announcement('images/automatic_car_wash_96px.png', '27 May 2022 | 10:00 pm', '6.4 Km | Riyadh- Alamariyah ', des, 2,'Car wash'),
 
 ];
+
