@@ -36,7 +36,6 @@ class _AddServiceState extends State<AddService> {
 
       final double hightScreen =
           hightscreenSize(context) - appBar.preferredSize.height;
-          
 
       final widthScreen = widthscreenSize(context);
 
@@ -148,7 +147,6 @@ class _AddServiceState extends State<AddService> {
                       width: widthScreen * 0.05,
                     ),
                     const Text(
-                      
                       'SAR',
                       style: TextStyle(
                           fontSize: 18,
@@ -157,7 +155,9 @@ class _AddServiceState extends State<AddService> {
                     ),
                   ],
                 ),
-                SizedBox(height: hightScreen*0.05,),
+                SizedBox(
+                  height: hightScreen * 0.05,
+                ),
                 SizedBox(
                   width: widthScreen,
                   child: ElevatedButton(

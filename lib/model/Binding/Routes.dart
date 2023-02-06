@@ -14,6 +14,7 @@ import '../../view/CarWashPags/schedule_page_carwash.dart';
 import '../../view/CarWashPags/services_page_carwash.dart';
 import '../../view/CarWashPags/services_page_carwash.dart';
 
+import '../../view/CustomerPags/request_page.dart';
 import '../../view/Dashboard_Page.dart';
 import '../../view/PasswordPage.dart';
 import '../../view/ProfilePage.dart';
@@ -36,8 +37,9 @@ class Routes {
   static String Services_Carwash_page = '/ServicesCarwashpage';
   static String addAnnuncement = '/AddAnnuncement';
   static String addService = '/AddService';
-  static String schedule_page_carwash = '/';
+  static String schedule_page_carwash = '/SchedulePageCarwash';
   static String ongoing_page_carwash = '/OngoingPage';
+  static String requestPage='/';
 
   static List<GetPage> routes = [
     GetPage(
@@ -98,6 +100,10 @@ class Routes {
     ),
     GetPage(name: Routes.ongoing_page_carwash,
      page: () => OngoingPageCarwash()),
+     GetPage(
+      name: Routes.requestPage,
+      page: () => RequestPage(),
+    )
   ];
 }
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constant.dart';
-import '../../model/announcement.dart';
 import '../CarWashPags/add_service.dart';
 
 class ServiceTemplete extends StatelessWidget {
