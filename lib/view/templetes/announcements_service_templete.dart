@@ -78,11 +78,13 @@ class AnnouncementsServiceTemplete extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
+                            color: kTextLigthColor,
                             onPressed: () {},
                             iconSize: 24,
                             icon: const Icon(Icons.edit),
                           ),
                           IconButton(
+                            color: kTextLigthColor,
                             onPressed: () {},
                             iconSize: 24,
                             icon: const Icon(Icons.delete),
@@ -118,7 +120,7 @@ class AnnouncementsServiceTemplete extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(const AddAnnuncement());
+          Get.to(AddAnnuncement());
           
         },
         child: const Icon(Icons.add),

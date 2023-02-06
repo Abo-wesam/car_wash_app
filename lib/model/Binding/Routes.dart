@@ -1,3 +1,4 @@
+import 'package:car_wash_app/view/CarWashPags/add_service.dart';
 import 'package:car_wash_app/view/auth/ForgetPassword.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -5,6 +6,11 @@ import '../../middleware/AuthGuardMiddleware.dart';
 import '../../view/Account_Page.dart';
 import '../../view/AddNewCarPage.dart';
 import '../../view/CarWashPags/Home.dart';
+import '../../view/CarWashPags/add_announcement.dart';
+import '../../view/CarWashPags/add_announcement.dart';
+import '../../view/CarWashPags/add_announcement.dart';
+import '../../view/CarWashPags/ongoing_page_carwash.dart';
+import '../../view/CarWashPags/schedule_page_carwash.dart';
 import '../../view/CarWashPags/services_page_carwash.dart';
 import '../../view/CarWashPags/services_page_carwash.dart';
 
@@ -27,8 +33,11 @@ class Routes {
   static String Schedule = '/Schedulepage';
   static String EditaddCarpage = '/editaddcarpage';
   static String Account_Page = '/AccountPage';
-  static String Services_Carwash_page='/';
-  
+  static String Services_Carwash_page = '/ServicesCarwashpage';
+  static String addAnnuncement = '/AddAnnuncement';
+  static String addService = '/AddService';
+  static String schedule_page_carwash = '/';
+  static String ongoing_page_carwash = '/OngoingPage';
 
   static List<GetPage> routes = [
     GetPage(
@@ -71,8 +80,24 @@ class Routes {
       name: Routes.Account_Page,
       page: () => AccountPage(),
     ),
-    GetPage(name: Routes.Services_Carwash_page, page: ()=>const ServicesCarwashpage(),)
-    
+    GetPage(
+      name: Routes.Services_Carwash_page,
+      page: () => ServicesCarwashpage(),
+    ),
+    GetPage(
+      name: Routes.addAnnuncement,
+      page: () => AddAnnuncement(),
+    ),
+    GetPage(
+      name: Routes.addService,
+      page: () => AddService(),
+    ),
+    GetPage(
+      name: Routes.schedule_page_carwash,
+      page: () => SchedulePageCarwash(),
+    ),
+    GetPage(name: Routes.ongoing_page_carwash,
+     page: () => OngoingPageCarwash()),
   ];
 }
 
