@@ -28,7 +28,7 @@ class Routes {
   static String Register = '/RegisterPage';
   static String ResetPass = '/ForgetPassword';
   static String dashboard = '/Dashboard';
-  static String home = '/HomePageCarwash';
+  static String home = '/';
   static String Password = '/PasswordPage';
   static String profile = '/ProfilePage';
   static String Schedule = '/Schedulepage';
@@ -39,7 +39,7 @@ class Routes {
   static String addService = '/AddService';
   static String schedule_page_carwash = '/SchedulePageCarwash';
   static String ongoing_page_carwash = '/OngoingPage';
-  static String requestPage='/';
+  static String requestPage='/RequestPage';
 
   static List<GetPage> routes = [
     GetPage(

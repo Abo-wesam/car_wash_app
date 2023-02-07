@@ -1,8 +1,8 @@
 import 'package:car_wash_app/constant.dart';
 import 'package:car_wash_app/view/templetes/stepper_templete.dart';
+import 'package:car_wash_app/view/widget/GoBack.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import '../../model/announcement.dart';
+import 'package:get/get.dart';
 
 class RequestPage extends StatelessWidget {
   const RequestPage({super.key});
@@ -13,6 +13,13 @@ class RequestPage extends StatelessWidget {
       title: const Text('Request'),
       elevation: 0,
       centerTitle: true,
+      
+      leading: BackButton(
+          onPressed: () {
+            Get.back();
+          },
+          color: Colors.white, // <-- SEE HERE
+        ),
     );
 
     final double hightScreen =
@@ -51,7 +58,7 @@ class RequestPage extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children:  const [
+                      children:   [
                         Text(
                           'Car wash',
                           style: TextStyle(
@@ -73,7 +80,7 @@ class RequestPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Expanded(child: SizedBox(width: 3,),
+                     Expanded(child: SizedBox(width: 3,),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
